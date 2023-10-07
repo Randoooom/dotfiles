@@ -1,0 +1,16 @@
+#
+# ~/.bashrc
+#
+
+# If not running interactively, don't do anything
+[[ $- != *i* ]] && return
+
+alias ls='ls --color=auto'
+export DOCKER_HOST=unix:///run/user/1000/docker.sock
+export LC_ALL=en_US.UTF-8
+export PATH=$PATH:/home/random/.cargo/bin
+
+eval "$(starship init bash)"
+eval "$(zoxide init --cmd cd bash)"
+
+export PATH="${HOME}/.fluvio/bin:${PATH}"

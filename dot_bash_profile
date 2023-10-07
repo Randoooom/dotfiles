@@ -1,0 +1,10 @@
+#
+# ~/.bash_profile
+#
+
+export DOCKER_HOST=unix:///run/user/1000/docker.sock
+export PATH="${PATH}:/home/.cargo/bin"
+[[ -f ~/.bashrc ]] && . ~/.bashrc
+
+
+
