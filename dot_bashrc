@@ -7,7 +7,6 @@
 
 alias ls='ls --color=auto'
 export DOCKER_HOST=unix:///run/user/1000/docker.sock
-export LC_ALL=en_US.UTF-8
 export PATH=$PATH:/home/random/.cargo/bin
 
 eval "$(starship init bash)"
