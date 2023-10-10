@@ -33,7 +33,11 @@ enable-ipc = true
 override-redirect = false
 bottom = false
 width = 100%
+{{- if eq .chezmoi.hostname "random-xps" }}
+height = 54
+{{- else }}
 height = 27
+{{- end }}
 ;offset-x = 1%
 ;offset-y = 1%
 radius = 0
@@ -49,7 +53,11 @@ line-color = #f00
 ;border-color = #00000000
 
 padding-left = 0
+{{- if eq .chezmoi.hostname "random-xps" }}
+padding-right = 5
+{{- else }}
 padding-right = 0
+{{- end }}
 
 module-margin-left = 5
 
@@ -63,6 +71,9 @@ font-6 = Roboto:style=bold;1
 font-7 = Roboto:size=10;1
 
 modules-center = date
+{{- if eq .chezmoi.hostname "random-xps" }}
+modules-right = backlight
+{{- end }}
 
 tray-position = none
 tray-padding = 2
@@ -88,7 +99,11 @@ enable-ipc = true
 override-redirect = false
 bottom = true
 width = 100%
+{{- if eq .chezmoi.hostname "random-xps" }}
+height = 54
+{{- else }}
 height = 25
+{{- end }}
 ;offset-x = 0
 ;offset-y = 0
 radius = 0
@@ -118,7 +133,11 @@ font-6 = Roboto:style=bold;1
 font-7 = Roboto:size=10;1
 
 modules-left = i3
+{{- if eq .chezmoi.hostname "random-xps" }}
+modules-right = vpn pulseaudio memory battery
+{{- else }}
 modules-right = vpn pulseaudio memory
+{{- end }}
 
 tray-position = none
 tray-padding = 0
@@ -137,6 +156,27 @@ tray-padding = 0
 
 cursor-click = pointer
 cursor-scroll = ns-resize
+
+{{- if eq .chezmoi.hostname "random-xps" }}
+[module/backlight]
+type = internal/backlight
+
+format =  <label>
+card = intel_backlight
+
+[module/battery]
+type = internal/battery
+
+format-charging = %{F#fff}%{T7}%{T-}%{A}%{F-} <ramp-capacity> <label-charging>
+format-discharging = <ramp-capacity> <label-discharging>
+format-full =  100%
+
+ramp-capacity-0 = 
+ramp-capacity-1 = 
+ramp-capacity-2 = 
+ramp-capacity-3 = 
+ramp-capacity-4 = 
+{{- end }}
 
 [module/i3]
 type = internal/i3
