@@ -192,7 +192,9 @@ exec --no-startup-id discord
 #exec --no-startup-id steam
 exec --no-startup-id firefox
 # exec --no-startup-id thunderbird
+{{- if ne .chezmoi.hostname "random-xps" }}
 exec --no-startup-id spotify
+{{- end}}
 
 # display wallpaper
 exec_always feh --bg-fill /home/random/Pictures/pexels-francesco-ungaro-6101601.jpg
@@ -255,3 +257,4 @@ exec sudo ntpdate -u 0.de.pool.ntp.org
 
 # some other random keyshortcuts
 bindsym Print exec flameshot gui
+bindsym $mod+x exec alacritty -e ranger
