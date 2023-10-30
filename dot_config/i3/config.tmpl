@@ -188,20 +188,24 @@ bindsym $mod+r mode "resize"
 #}
 
 # startup
-exec --no-startup-id discord
 #exec --no-startup-id steam
 exec --no-startup-id firefox
 # exec --no-startup-id thunderbird
 {{- if ne .chezmoi.hostname "random-xps" }}
 exec --no-startup-id spotify
+exec --no-startup-id discord
 {{- end}}
 
 # display wallpaper
 exec_always feh --bg-fill /home/random/Pictures/pexels-francesco-ungaro-6101601.jpg
 # exec_always feh --bg-fill /home/random/Pictures/marc-thunis-0B86_ifhE4E-unsplash.jpg
 
+{{- if ne .chezmoi.hostname "random-xps" }}
 # compositer
 exec_always picom -f --config /home/random/.config/picom/picom.conf
+{{- else }}
+exec_always ./ac.sh picom -f --config /home/random/.config/picom/picom.conf
+{{- end }}
 
 # colors 
 set $bgcolor #282626
@@ -257,4 +261,5 @@ exec sudo ntpdate -u 0.de.pool.ntp.org
 
 # some other random keyshortcuts
 bindsym Print exec flameshot gui
+bindsym $mod+b exec alacritty -e bluetuith
 bindsym $mod+x exec alacritty -e ranger
