@@ -62,7 +62,7 @@ local plugins = {
     end,
   },
 
-  --[[ {
+  {
     "hrsh7th/nvim-cmp",
     opts = function()
       local conf = require "plugins.configs.cmp"
@@ -70,7 +70,7 @@ local plugins = {
       table.insert(conf.sources, { name = "crates" })
       return conf
     end,
-  }, ]]
+  },
 
   {
     "https://git.sr.ht/~reggie/licenses.nvim",

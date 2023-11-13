@@ -12,7 +12,8 @@ M.treesitter = {
     "c",
     "markdown",
     "markdown_inline",
-    "rust"
+    "rust",
+    "sql"
   },
   indent = {
     enable = true,
@@ -24,24 +25,18 @@ M.treesitter = {
 
 M.mason = {
   ensure_installed = {
-    -- lua stuff
     "lua-language-server",
     "stylua",
-
-    -- web dev stuff
     "css-lsp",
     "html-lsp",
     "typescript-language-server",
     "deno",
     "prettier",
-
-    -- c/cpp stuff
     "clangd",
     "clang-format",
-
-    -- rust
     "rust-analyzer",
-    "taplo"
+    "taplo",
+    "sqlls"
   },
 }
 

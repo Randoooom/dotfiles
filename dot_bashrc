@@ -9,6 +9,8 @@ alias ls='ls --color=auto'
 export DOCKER_HOST=unix:///run/user/1000/docker.sock
 export PATH=$PATH:/home/random/.cargo/bin
 export EDITOR=nvim
+export NDK_HOME=/opt/android-ndk
+export ANDROID_HOME=/opt/android-sdk
 
 eval "$(starship init bash)"
 eval "$(zoxide init --cmd cd bash)"
