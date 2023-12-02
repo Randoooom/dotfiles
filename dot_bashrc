@@ -16,3 +16,11 @@ eval "$(starship init bash)"
 eval "$(zoxide init --cmd cd bash)"
 
 export PATH="${HOME}/.fluvio/bin:${PATH}"
+
+export GPG_TTY=$(tty)
+
+# The next line updates PATH for the Google Cloud SDK.
+if [ -f '/home/random/tmp/google-cloud-sdk/path.bash.inc' ]; then . '/home/random/tmp/google-cloud-sdk/path.bash.inc'; fi
+
+# The next line enables shell command completion for gcloud.
+if [ -f '/home/random/tmp/google-cloud-sdk/completion.bash.inc' ]; then . '/home/random/tmp/google-cloud-sdk/completion.bash.inc'; fi
