@@ -79,6 +79,10 @@ local plugins = {
       require("licenses").setup({ license = "MIT", copyright_holder = "OneLiteFeatherNet" })
       require("telescope").load_extension("licenses-nvim")
     end
+  },
+  {
+    "wakatime/vim-wakatime",
+    lazy = false
   }
 
   -- {
