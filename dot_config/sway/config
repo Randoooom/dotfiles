@@ -185,11 +185,11 @@ bindswitch --reload --locked lid:on output $laptop disable
 bindswitch --reload --locked lid:off output $laptop enable
 
 exec swayidle -w \
-    timeout 60 'swaylock --screenshot --clock --indicator --effect-blur 5x10' \
+    timeout 60 'swaylock -f --screenshot --clock --indicator --effect-blur 5x10' \
     timeout 100 'swaymsg "output * dpms off"' \
         resume  'swaymsg "output * dpms on"'  \
     timeout 120 'systemctl suspend ' \
-    before-sleep 'swaylock --screenshot --clock --indicator --effect-blur 5x10 '
+    before-sleep 'swaylock -f --screenshot --clock --indicator --effect-blur 5x10 '
 
 # colors 
 set $bgcolor #282626
