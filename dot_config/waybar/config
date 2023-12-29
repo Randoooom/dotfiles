@@ -4,10 +4,13 @@
     "height": 30,
     "spacing": 4,
     "modules-left": ["sway/workspaces", "sway/mode"],
-    "modules-center": [],
+    "modules-center": ["clock"],
     "modules-right": ["pulseaudio", "custom/vpn", "network", "backlight", "battery"],
     "sway/mode": {
         "format": "<span style=\"italic\">{}</span>"
+    },
+    "clock": {
+      "format": "{:%A, %d. %B %H:%M}"
     },
     "backlight": {
         "format": "{percent}% {icon}",

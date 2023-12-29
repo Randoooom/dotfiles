@@ -184,6 +184,8 @@ set $laptop eDP-1
 bindswitch --reload --locked lid:on output $laptop disable
 bindswitch --reload --locked lid:off output $laptop enable
 
+exec sway-audio-idle-inhibit
+
 exec swayidle -w \
     timeout 60 'swaylock -f --screenshot --clock --indicator --effect-blur 5x10' \
     timeout 100 'swaymsg "output * dpms off"' \
@@ -206,6 +208,9 @@ smart_borders on
 for_window [class="Alacritty" title="Processes"]  move to workspace $ws1
 for_window [class="Alacritty" title="CPU"]        move to workspace $ws1
 for_window [class="Alacritty" title="GPU"]        move to workspace $ws1
+
+for_window [class="Alacritty" title = "Processes"] focus, split h
+for_window [class="Alacritty" title = "CPU"] focus, split v
 
 # move windows 
 for_window [class="firefox"] move to workspace $ws2
@@ -237,6 +242,8 @@ exec alacritty -T "Processes" -e sudo btop -p 4
 exec alacritty -T "CPU" -e sudo btop -p 5
 exec alacritty -T "GPU" -e sudo nvtop
 
+exec wlsunset
+
 # sync clock
 exec sudo ntpdate -u 0.de.pool.ntp.org
 
@@ -244,4 +251,10 @@ exec sudo ntpdate -u 0.de.pool.ntp.org
 bindsym Print exec flameshot gui
 bindsym $mod+b exec alacritty -e bluetuith
 bindsym $mod+x exec alacritty -e ranger
+
+input "type:touchpad" {
+    dwt enabled
+    tap enabled
+    middle_emulation enable
+}
 
