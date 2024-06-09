@@ -13,7 +13,8 @@ M.treesitter = {
     "markdown",
     "markdown_inline",
     "rust",
-    "sql"
+    "sql",
+    "vue"
   },
   indent = {
     enable = true,
