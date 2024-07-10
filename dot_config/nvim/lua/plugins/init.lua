@@ -51,6 +51,7 @@ return {
 				"terraform-ls",
 				"yamlfmt",
 				"vue-language-server",
+				"pylyzer",
 			},
 		},
 	},
@@ -74,7 +75,6 @@ return {
 				"vue",
 				"terraform",
 				"toml",
-				"pylyzer",
 			},
 			endwise = {
 				enable = true,
