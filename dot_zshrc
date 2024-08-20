@@ -1,0 +1,10 @@
+[[ $- != *i* ]] && return
+
+autoload -Uz compinit
+compinit
+
+alias ls='eza'
+
+eval "$(starship init zsh)"
+eval "$(zoxide init zsh)"
+eval "$(thefuck --alias)"
