@@ -1,7 +1,8 @@
 [[ $- != *i* ]] && return
 
-export DOCKER_HOST=unix:///run/user/1000/docker.sock
+export DOCKER_HOST=unix://$XDG_RUNTIME_DIR/docker.sock
 export PATH=$PATH:/home/random/.cargo/bin
 export EDITOR=nvim
 export SSH_AUTH_SOCK="$XDG_RUNTIME_DIR/ssh-agent.socket"
 export GPG_TTY=$(tty)
+export TERM=xterm-256color

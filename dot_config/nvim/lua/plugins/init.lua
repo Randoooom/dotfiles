@@ -21,11 +21,25 @@ return {
   },
 
   {
+    "mfussenegger/nvim-jdtls",
+    init = function()
+      require("jdtls").start_or_attach {}
+    end,
+  },
+
+  {
     "neovim/nvim-lspconfig",
-    config = function()
+    opts = function()
       require("nvchad.configs.lspconfig").defaults()
       require "configs.lspconfig"
     end,
+  },
+
+  {
+    "kyazdani42/nvim-tree.lua",
+    opts = {
+      view = { adaptive_size = true },
+    },
   },
 
   {
@@ -50,8 +64,8 @@ return {
         "helm-ls",
         "terraform-ls",
         "yamlfmt",
-        "vue-language-server",
-        "pylyzer",
+        "vls",
+        "python-language-server",
         "jdtls",
       },
     },
@@ -161,10 +175,5 @@ return {
     config = function()
       require("nvim-surround").setup()
     end,
-  },
-
-  {
-    "mfussenegger/nvim-jdtls",
-    ft = { "java" },
   },
 }

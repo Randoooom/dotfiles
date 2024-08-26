@@ -61,7 +61,7 @@ bindsym $mod+d exec --no-startup-id rofi -show drun -show-icons
 # change focus
 bindsym $mod+j focus left
 bindsym $mod+k focus down
-bindsym $mod+l focus up
+# bindsym $mod+l focus up
 bindsym $mod+semicolon focus right
 
 # alternatively, you can use the cursor keys:
@@ -181,7 +181,7 @@ bindsym $mod+r mode "resize"
 exec --no-startup-id dunst
 
 # display wallpaper
-exec --no-startup-id swaybg -m fill -i /home/random/Pictures/pexels-francesco-ungaro-6101601.jpg
+exec --no-startup-id swaybg -m fill -i ~/.config/sway/pexels-francesco-ungaro-6101601.jpg
 
 output eDP-1 pos 0,0
 output DP-8 pos 3840,0
@@ -192,6 +192,8 @@ bindswitch --reload --locked lid:on output $laptop disable
 bindswitch --reload --locked lid:off output $laptop enable
 
 exec sway-audio-idle-inhibit
+
+bindsym $mod+l exec swaylock -f --screenshot --clock --indicator --effect-blur 5x10
 
 exec swayidle -w \
     timeout 60 'swaylock -f --screenshot --clock --indicator --effect-blur 5x10' \

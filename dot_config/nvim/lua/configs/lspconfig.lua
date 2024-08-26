@@ -12,11 +12,11 @@ local servers = {
   "jsonls",
   "cssls",
   "bashls",
-  "volar",
+  "vuels",
   "bufls",
   "terraformls",
   "helm_ls",
-  "pylyzer",
+  "pylsp",
   "jdtls",
 }
 
