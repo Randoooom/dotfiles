@@ -64,9 +64,10 @@ return {
         "helm-ls",
         "terraform-ls",
         "yamlfmt",
-        "vls",
+        "vue-language-server",
         "python-language-server",
         "jdtls",
+        "prettier"
       },
     },
   },

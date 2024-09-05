@@ -12,7 +12,7 @@ local servers = {
   "jsonls",
   "cssls",
   "bashls",
-  "vuels",
+  "volar",
   "bufls",
   "terraformls",
   "helm_ls",
