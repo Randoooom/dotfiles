@@ -3,12 +3,9 @@ local options = {
     lua = { "stylua" },
     yaml = { "yamlfmt" },
     groovy = { "npm-groovy-lint" },
-    vue = { "prettier" },
-  },
-  formatters = {
-    prettier = {
-      command = "prettier",
-    },
+    vue = { "eslint_d" },
+    ts = { "eslint_d" },
+    js = { "eslint_d" },
   },
 }
 

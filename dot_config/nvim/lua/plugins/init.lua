@@ -21,13 +21,6 @@ return {
   },
 
   {
-    "mfussenegger/nvim-jdtls",
-    init = function()
-      require("jdtls").start_or_attach {}
-    end,
-  },
-
-  {
     "neovim/nvim-lspconfig",
     opts = function()
       require("nvchad.configs.lspconfig").defaults()
@@ -39,36 +32,6 @@ return {
     "kyazdani42/nvim-tree.lua",
     opts = {
       view = { adaptive_size = true },
-    },
-  },
-
-  {
-    "williamboman/mason.nvim",
-    opts = {
-      ensure_installed = {
-        "lua-language-server",
-        "stylua",
-        "css-lsp",
-        "html-lsp",
-        "typescript-language-server",
-        "deno",
-        "prettier",
-        "clangd",
-        "clang-format",
-        "rust-analyzer",
-        "taplo",
-        "sqlls",
-        "groovy-language-server",
-        "yaml-language-server",
-        "npm-groovy-lint",
-        "helm-ls",
-        "terraform-ls",
-        "yamlfmt",
-        "vue-language-server",
-        "python-language-server",
-        "jdtls",
-        "prettier"
-      },
     },
   },
 
