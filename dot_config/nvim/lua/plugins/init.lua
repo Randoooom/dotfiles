@@ -21,6 +21,24 @@ return {
   },
 
   {
+    "nvim-telescope/telescope.nvim",
+    opts = {
+      extensions = { "remote-sshfs" },
+    },
+  },
+
+  {
+    "mfussenegger/nvim-jdtls",
+    opts = {
+      settings = {
+        java = {
+          signatureHelp = true,
+        },
+      },
+    },
+  },
+
+  {
     "neovim/nvim-lspconfig",
     opts = function()
       require("nvchad.configs.lspconfig").defaults()
@@ -32,6 +50,7 @@ return {
     "kyazdani42/nvim-tree.lua",
     opts = {
       view = { adaptive_size = true },
+      git = { ignore = false },
     },
   },
 
@@ -98,7 +117,7 @@ return {
 
   {
     "towolf/vim-helm",
-    ft = { "yaml" },
+    ft = "helm"
   },
 
   {
@@ -139,5 +158,29 @@ return {
     config = function()
       require("nvim-surround").setup()
     end,
+  },
+
+  {
+    "eatgrass/maven.nvim",
+    cmd = { "Maven", "MavenExec" },
+    dependencies = "nvim-lua/plenary.nvim",
+    config = function()
+      require("maven").setup {
+        executable = "./mvnw",
+      }
+    end,
+  },
+
+  {
+    "nosduco/remote-sshfs.nvim",
+    dependencies = { "nvim-telescope/telescope.nvim", "nvim-lua/plenary.nvim" },
+    cmd = { "RemoteSSHFSConnect" },
+    config = true,
+    opts = {},
+  },
+
+  {
+    "trixnz/sops.nvim",
+    lazy = false,
   },
 }

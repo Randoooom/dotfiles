@@ -1,0 +1,17 @@
+[[battery.display]]
+threshold = 100
+
+[gcloud]
+disabled = true
+
+[kubernetes]
+disabled = false
+
+[username]
+disabled = false
+
+[aws]
+disabled = false
+
+[os]
+disabled = false

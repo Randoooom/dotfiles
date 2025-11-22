@@ -5,20 +5,22 @@ local lspconfig = require "lspconfig"
 
 -- EXAMPLE
 local servers = {
-  "rust_analyzer",
+  -- "rust_analyzer",
   "taplo",
   "sqlls",
-  "tsserver",
+  "ts_ls",
   "jsonls",
   "cssls",
   "bashls",
   "volar",
-  "bufls",
+  "buf_ls",
   "terraformls",
   "helm_ls",
   "pylsp",
   "jdtls",
-  "eslint"
+  "eslint",
+  "html",
+  "htmx",
 }
 local nvlsp = require "nvchad.configs.lspconfig"
 
@@ -31,26 +33,25 @@ for _, lsp in ipairs(servers) do
   }
 end
 
-
-lspconfig.groovyls.setup {
+lspconfig.emmet_language_server.setup {
   on_attach = nvlsp.on_attach,
   on_init = nvlsp.on_init,
   capabilities = nvlsp.capabilities,
-  cmd = { "/home/froc/.local/share/nvim/mason/packages/groovy-language-server/groovy-language-server" },
+  filetypes = { "vue" },
 }
 
-lspconfig.yamlls.setup {
-  on_attach = nvlsp.on_attach,
-  on_init = nvlsp.on_init,
-  capabilities = nvlsp.capabilities,
-  settings = {
-    yaml = {
-      format = {
-        enable = true,
-      },
-      validate = true,
-      hover = true,
-      completion = true,
-    },
-  },
-}
+-- lspconfig.yamlls.setup {
+--   on_attach = nvlsp.on_attach,
+--   on_init = nvlsp.on_init,
+--   capabilities = nvlsp.capabilities,
+--   settings = {
+--     yaml = {
+--       format = {
+--         enable = true,
+--       },
+--       validate = true,
+--       hover = true,
+--       completion = true,
+--     },
+--   },
+-- }

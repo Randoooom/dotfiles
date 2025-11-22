@@ -1,8 +1,11 @@
 [[ $- != *i* ]] && return
 
 export DOCKER_HOST=unix://$XDG_RUNTIME_DIR/docker.sock
-export PATH=$PATH:/home/random/.cargo/bin
+export PATH=$PATH:$HOME/.cargo/bin:$HOME/go/bin:$HOME/.local/bin
 export EDITOR=nvim
-export SSH_AUTH_SOCK="$XDG_RUNTIME_DIR/ssh-agent.socket"
+export SSH_AUTH_SOCK="$HOME/.bitwarden-ssh-agent.sock"
 export GPG_TTY=$(tty)
 export TERM=xterm-256color
+
+export PATH=/usr/bin:$PATH
+export SOPS_AGE_KEY_FILE="$HOME/.config/sops/age/key.txt"

@@ -184,7 +184,7 @@ exec --no-startup-id dunst
 exec --no-startup-id swaybg -m fill -i ~/.config/sway/pexels-francesco-ungaro-6101601.jpg
 
 output eDP-1 pos 0,0
-output DP-8 pos 3840,0
+output DP-1 pos 3840,0 resolution 3840x2160@60Hz
 
 # acpi and dpms
 set $laptop eDP-1
@@ -195,12 +195,12 @@ exec sway-audio-idle-inhibit
 
 bindsym $mod+l exec swaylock -f --screenshot --clock --indicator --effect-blur 5x10
 
-exec swayidle -w \
-    timeout 60 'swaylock -f --screenshot --clock --indicator --effect-blur 5x10' \
-    timeout 100 'swaymsg "output * dpms off"' \
-        resume  'swaymsg "output * dpms on"'  \
-    timeout 120 'systemctl suspend-then-hibernate ' \
-    before-sleep 'swaylock -f --screenshot --clock --indicator --effect-blur 5x10 '
+#exec swayidle -w \
+#    timeout 60 'swaylock -f --screenshot --clock --indicator --effect-blur 5x10' \
+#    timeout 100 'swaymsg "output * dpms off"' \
+#        resume  'swaymsg "output * dpms on"'  \
+#    timeout 120 'systemctl suspend-then-hibernate ' \
+#    before-sleep 'swaylock -f --screenshot --clock --indicator --effect-blur 5x10 '
 
 # colors 
 set $bgcolor #282626
@@ -218,29 +218,21 @@ default_border none
 for_window [class="^.*"] border pixel 0
 smart_borders on
 
-for_window [class="Alacritty" title="Processes"]  move to workspace $ws1
-for_window [class="Alacritty" title="CPU"]        move to workspace $ws1
-for_window [class="Alacritty" title="GPU"]        move to workspace $ws1
-
-for_window [class="Alacritty" title = "Processes"] focus, split h
-for_window [class="Alacritty" title = "CPU"] focus, split v
-
-# move windows 
 for_window [class="firefox"] move to workspace $ws2
-for_window [class="discord"] move to workspace $ws3
-for_window [class="steam"] move to workspace $ws4
-for_window [title="TeamSpeak"] move to workspace $ws3
-for_window [class="jetbrains-*"] move to workspace $ws5
-for_window [class="GitKraken"] move to workspace $ws6
-for_window [class="Wine"] floating enable
-for_window [class="Thunderbird"] move to workspace $ws9
-for_window [class="Spotify"] move to workspace $ws8
-for_window [class="riotclientux.exe"] move to workspace $ws10
-for_window [class="leagueclientux.exe"] move to workspace $ws10
-for_window [class="internxt-drive"] floating disable
-for_window [class="awakened-poe-trade"] floating enable
+for_window [app_id="librewolf"] move to workspace $ws2
 
-for_window [app_id="flameshot"] border pixel 0, floating enable, fullscreen disable, move absolute position 0 0
+for_window [class="discord"] move to workspace $ws3
+for_window [title="TeamSpeak"] move to workspace $ws3
+
+for_window [class="steam"] move to workspace $ws4
+
+for_window [class="jetbrains-*"] move to workspace $ws5
+
+for_window [app_id="tidal-hifi"] move to workspace $ws8
+
+for_window [class="Thunderbird"] move to workspace $ws9
+
+for_window [class="Bitwarden"] move to workspace $ws10
 
 # class                 border  backgr. text    indicator child_border
 client.focused $bgcolor $bgcolor $text $bgcolor
@@ -254,14 +246,13 @@ gaps outer -10
 
 exec wlsunset -T 4500
 
-# sync clock
-exec sudo ntpdate -u 0.de.pool.ntp.org
-
 # some other random keyshortcuts
 # bindsym Print exec flameshot gui
 bindsym Print exec grim -g "$(slurp)" - | swappy -f - -o /tmp/screen.png && sleep 1 && imgurbash2 /tmp/screen.png && rm /tmp/screen.png
 bindsym $mod+b exec alacritty -e bluetuith
 bindsym $mod+x exec alacritty -e ranger
+
+# Touchpad setup
 
 input "type:touchpad" {
     dwt enabled
@@ -273,3 +264,5 @@ exec systemctl --user import-environment DISPLAY WAYLAND_DISPLAY SWAYSOCK
 exec hash dbus-update-activation-environment 2>/dev/null && \
      dbus-update-activation-environment --systemd DISPLAY WAYLAND_DISPLAY SWAYSOCK
 
+exec /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
+exec bitwarden-desktop

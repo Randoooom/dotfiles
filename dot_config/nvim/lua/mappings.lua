@@ -16,3 +16,5 @@ map("n", "<leader>gu", neogit.action("pull", "from_pushremote"), { desc = "Git p
 map("n", "<leader>gt", ":Neogit tag <CR>", { desc = "Git tag" })
 map("n", "<leader>gc", neogit.action("commit", "commit"), { desc = "Commit changes" })
 map("n", "<leader>cm", neogit.action("log", "log_current"), { desc = "Browse recent commits" })
+
+map("n", "<leader>rs", ":RemoteSSHFSConnect <CR>", { desc = "Connect to remote SSH" })
