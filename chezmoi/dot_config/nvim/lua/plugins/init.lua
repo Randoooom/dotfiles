@@ -116,7 +116,7 @@ return {
   },
 
   {
-    "towolf/vim-helm",
+    "qvalentin/helm-ls.nvim",
     ft = "helm"
   },
 

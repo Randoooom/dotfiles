@@ -15,7 +15,6 @@ local servers = {
   "volar",
   "buf_ls",
   "terraformls",
-  "helm_ls",
   "pylsp",
   "jdtls",
   "eslint",
@@ -40,18 +39,18 @@ lspconfig.emmet_language_server.setup {
   filetypes = { "vue" },
 }
 
--- lspconfig.yamlls.setup {
---   on_attach = nvlsp.on_attach,
---   on_init = nvlsp.on_init,
---   capabilities = nvlsp.capabilities,
---   settings = {
---     yaml = {
---       format = {
---         enable = true,
---       },
---       validate = true,
---       hover = true,
---       completion = true,
---     },
---   },
--- }
+lspconfig.yamlls.setup {
+  on_attach = nvlsp.on_attach,
+  on_init = nvlsp.on_init,
+  capabilities = nvlsp.capabilities,
+  settings = {
+    yaml = {
+      format = {
+        enable = true,
+      },
+      validate = true,
+      hover = true,
+      completion = true,
+    },
+  },
+}
