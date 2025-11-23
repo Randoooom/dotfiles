@@ -1,0 +1,10 @@
+# Reload SOF audio modules if needed
+# if lsmod | grep -q snd_sof_pci_intel_tgl; then
+  # echo "Reloading SOF audio module..."
+  # sudo modprobe -r snd_sof_pci_intel_tgl && sudo modprobe snd_sof_pci_intel_tgl
+# fi
+
+
+# Added by Toolbox App
+export PATH="$PATH:/home/random/.local/share/JetBrains/Toolbox/scripts"
+
