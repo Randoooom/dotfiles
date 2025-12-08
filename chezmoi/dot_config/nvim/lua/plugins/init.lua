@@ -117,7 +117,7 @@ return {
 
   {
     "qvalentin/helm-ls.nvim",
-    ft = "helm"
+    ft = "helm",
   },
 
   {
@@ -182,5 +182,10 @@ return {
   {
     "trixnz/sops.nvim",
     lazy = false,
+  },
+
+  {
+    "ray-x/lsp_signature.nvim",
+    event = "InsertEnter",
   },
 }

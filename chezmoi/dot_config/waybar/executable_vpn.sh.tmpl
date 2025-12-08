@@ -1,0 +1,18 @@
+#!/bin/sh
+
+# Configuration
+TOKEN="{{ (bitwardenFields "item" "ipinfo.io").token.value }}"
+
+# get the response from ipinfo.io
+RESPONSE=$(curl -s "https://api.ipinfo.io/lite/me?token=${TOKEN}")
+
+# parse the response
+AS=$(echo $RESPONSE | jq -r '.as_name')
+AS_DOMAIN=$(echo $RESPONSE | jq -r '.as_domain')
+
+if [ "$AS_DOMAIN" = "packethub.net" ]; then
+  COLOR="#769972"
+else
+  COLOR="#b05655"
+fi
+echo -e "<span color=\"${COLOR}\">${AS}</span>"

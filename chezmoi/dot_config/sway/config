@@ -181,7 +181,7 @@ bindsym $mod+r mode "resize"
 exec --no-startup-id dunst
 
 # display wallpaper
-exec --no-startup-id swaybg -m fill -i ~/.config/sway/pexels-francesco-ungaro-6101601.jpg
+exec --no-startup-id swaybg -m fill -i ~/.config/sway/5748285.jpg
 
 output eDP-1 pos 0,0
 output DP-1 pos 3840,0 resolution 3840x2160@60Hz

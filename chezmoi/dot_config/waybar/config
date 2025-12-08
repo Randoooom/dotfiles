@@ -51,7 +51,7 @@
     },
     "custom/vpn": {
       "format": "{}",
-      "exec": "$HOME/.config/waybar/nordvpn.sh",
+      "exec": "$HOME/.config/waybar/vpn.sh",
       "interval": 10
     }
 }
